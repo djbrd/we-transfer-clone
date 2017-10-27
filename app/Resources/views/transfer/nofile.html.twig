@@ -1,0 +1,8 @@
+<h1>File not found</h1>
+
+<h2>Existing files</h2>
+<ul>
+    {% for file in files %}
+        <li><a href="{{ url('transfer_retrieve_file', {'handle': file.handle}) }}">{{ file.handle }}</a></li>
+    {% endfor %}
+</ul>

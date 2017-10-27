@@ -1,0 +1,12 @@
+<h1>Sharing an image</h1>
+
+{% for message in app.flashes('error') %}
+    <div>
+        {{ message }}
+    </div>
+{% endfor %}
+
+{{ form_start(form) }}
+    {{ form_row(form.handle) }}
+    {{ form_row(form.password) }}
+{{ form_end(form) }}
