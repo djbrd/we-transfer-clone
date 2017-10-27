@@ -19,5 +19,5 @@ parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
 
     # For use with Filestack - create an account here https://www.filestack.com/
-    filestack_api_key: Ab5UHZUhnS6KoawsQnIlXz
-    filestack_app_secret: KGXN7SZBO5GCDKXXNASDC2UV3I
+    filestack_api_key: ~
+    filestack_app_secret: ~
