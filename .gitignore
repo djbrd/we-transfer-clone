@@ -17,3 +17,4 @@
 /web/bundles/
 .*
 !/.gitignore
+php-cs-fixer-v2.phar

@@ -28,7 +28,8 @@ class TransferController extends Controller
 
         // Check for form submission
         if ($form->isSubmitted() && $form->isValid()) {
-            // Hash the password - could use a separate variable for plain password, which isn't persisted in the database
+            // Hash the password - could use a separate variable for plain password,
+            //  which isn't persisted in the database
             $password = $sharedFile->getPassword();
             $password = password_hash($password, PASSWORD_DEFAULT);
             $sharedFile->setPassword($password);
@@ -41,7 +42,8 @@ class TransferController extends Controller
                 $handle = $filestackManager->upload($file);
                 $sharedFile->setHandle($handle);
 
-                // Store the mimetype which could actually be retrieved from Filestack, but is required for building response
+                // Store the mimetype which could actually be retrieved from Filestack,
+                //  but is required for building response
                 //  and enables easier encapsulation
                 $sharedFile->setMimeType($file->getMimeType());
 
@@ -55,7 +57,7 @@ class TransferController extends Controller
                 ));
             } catch (\Exception $e) {
                 $logger->error($e->getMessage());
-                $this->addFlash('error', 'Upload unsuccessful - please try again later, or contact the site administrator');
+                $this->addFlash('error', 'Upload unsuccessful - please try later, or contact the site administrator');
             }
         }
 
@@ -68,8 +70,12 @@ class TransferController extends Controller
     /**
      * @Route("transfer/retrieve/{handle}", name="transfer_retrieve_file")
      */
-    public function retrieveAction(Request $request, $handle, FilestackManager $filestackManager, LoggerInterface $logger)
-    {
+    public function retrieveAction(
+        Request $request,
+        $handle,
+        FilestackManager $filestackManager,
+        LoggerInterface $logger
+    ) {
         // Get the file from the database here instead of using a param converter so that invalid handle can be handled
         //  gracefully and easily (without using an event listener to listen for a 404 exception thrown by this action)
         $repository = $this->getDoctrine()->getRepository(SharedFile::class);
@@ -101,7 +107,8 @@ class TransferController extends Controller
                     return $response;
                 } catch (\Exception $e) {
                     $logger->error($e->getMessage());
-                    $this->addFlash('error', 'Retrieval unsuccessful - please try again later, or contact the site administrator');
+                    $this->addFlash('error', 'Retrieval unsuccessful - please try later, or contact the site 
+                    administrator');
                 }
             }
         }
