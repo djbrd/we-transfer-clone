@@ -1,15 +1,15 @@
-#WeTransfer Clone
+# WeTransfer Clone
 
 This application is a simple clone of [WeTransfer](https://wetransfer.com/) using [Filestack](https://www.filestack.com/) to enable the transfer of image files with password protection.
 
 It was written to complete [this task description](docs/aufgabe.md).
 
-##Requirements
+## Requirements
 
 - PHP 5.6+
 - MySQL
 
-##Installing
+## Installing
 
 To install an existing Symfony Application, you can follow the [guidelines in the official documentation](https://symfony.com/doc/current/setup.html#installing-an-existing-symfony-application).
 
@@ -21,7 +21,7 @@ bin/console doctrine:database:create
 bin/console doctrine:migrations:migrate
 ```
 
-##Known problems and possible improvements
+## Known problems and possible improvements
 - When a file is retrieved, it is displayed in the browser instead of being downloaded by the browser into a downloads folder, which I would prefer. This latter behaviour could be enabled with a couple of lines of code, but then the form would not refreshed in browser. This could be done with a little JavaScript when the form is submitted.
 - I don't like storing the mimetype of the shared file in the database, as this information is available in the Filelink when the file is retrieved from Filestack. However, I wanted to encapsulate the Filestack related code in the FilestackManager class, and to avoid saving the file on the server before returning it to the client. Instead of just returning the file content from FilestackManager, I should probably return an object in which both the content and the mimetype are represented.
 - Limiting the size of uploaded files
