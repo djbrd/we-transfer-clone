@@ -13,7 +13,7 @@ It was written to complete [this task description](docs/aufgabe.md).
 
 To install an existing Symfony Application, you can follow the [guidelines in the official documentation](https://symfony.com/doc/current/setup.html#installing-an-existing-symfony-application).
 
-You will also require an account at [Filestack](https://www.filestack.com/) with security enabled. You will prompted for your Filestack api key and the app secret key when running composer install.
+You will also require an account at [Filestack](https://www.filestack.com/) with security enabled. You will prompted for your Filestack api key and your app secret key when running composer install.
 
 To initialise the database, run the following two commands (from the project's root directory):
 ```
